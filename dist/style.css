@@ -47,6 +47,7 @@
         grid-template-rows: 1fr;
         opacity: 0;
         transition: transform 2s ease-in-out 0s, opacity 2s linear 0s;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
     .circleOn0 {
         display: block;
@@ -57,6 +58,7 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
         
     }
     .circleOn1 {
@@ -68,6 +70,7 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
     .circleOn2 {
         display: block;
@@ -78,6 +81,7 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
     .circleOn3 {
         display: block;
@@ -88,6 +92,7 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
 
 
