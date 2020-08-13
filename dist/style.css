@@ -20,6 +20,8 @@
         grid-template-rows: 1fr;
         z-index: 1;
         -webkit-mask-image: -webkit-radial-gradient(white, black);
+        will-change: transform;
+        overflow: hidden;
     }
     .circleText {
         justify-self: center;
@@ -48,6 +50,8 @@
         opacity: 0;
         transition: transform 2s ease-in-out 0s, opacity 2s linear 0s;
         -webkit-mask-image: -webkit-radial-gradient(white, black);
+        will-change: transform;
+        overflow: hidden;
     }
     .circleOn0 {
         display: block;
