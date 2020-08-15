@@ -41,7 +41,7 @@ const mobileAnimations = (() => {
 const imageSlider = (() => {
     const leftArrow = document.getElementById('left');
     const rightArrow = document.getElementById('right');
-    const controlDots = document.querySelectorAll('.controlDot');
+    const buttons = document.querySelectorAll('.controlDot');
     const imageDiv = document.querySelector('.imageSlider');
     let offset = 0;
     let imageNumber = 1;
@@ -70,6 +70,33 @@ const imageSlider = (() => {
                 offset = 0;
         }
     }
+
+    const updateImageCircle = () => {
+        buttons.forEach((button) => {
+            const buttonId = button.getAttribute('id');
+            const buttonNumber = buttonId.replace('pic', '');
+            if (parseInt(buttonNumber) === imageNumber) {
+                button.classList.add('controlDotOn');
+            }
+            else {
+                button.classList.remove('controlDotOn');
+            }
+
+        })
+
+    }
+    const circleButtonActions = () => {
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const buttonId = button.getAttribute('id');
+                const buttonNumber = buttonId.replace('pic', '');
+                imageNumber = parseInt(buttonNumber);
+                getOffset();
+                imageDiv.style.transform = `translateX(-${offset}vw)`;
+                updateImageCircle();
+            })
+        })
+    }
     const moveLeft = () => {
         leftArrow.addEventListener('click', () => {
             imageNumber -= 1;
@@ -78,6 +105,7 @@ const imageSlider = (() => {
             }
             getOffset();
             imageDiv.style.transform = `translateX(-${offset}vw)`;
+            updateImageCircle();
         });
     }
     //We need to update this to make the numbers right to make it move.
@@ -89,11 +117,14 @@ const imageSlider = (() => {
             }
             getOffset();
             imageDiv.style.transform = `translateX(-${offset}vw)`;
+            updateImageCircle();
         });
     }
 
     return { moveLeft,
-            moveRight }
+            moveRight,
+            circleButtonActions,
+            updateImageCircle, }
 
 })();
 
@@ -103,3 +134,5 @@ animations.dropDown('theGuysMenu', '.theGuysDropdown');
 mobileAnimations.circlePopOut();
 imageSlider.moveLeft();
 imageSlider.moveRight();
+imageSlider.circleButtonActions();
+imageSlider.updateImageCircle();
